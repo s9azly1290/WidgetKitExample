@@ -1,23 +1,26 @@
 workflows:
-  widgetkit-example-build:
-    name: WidgetKitExample Build
+  widgetkit-example-release:
+    name: WidgetKitExample IPA
     max_build_duration: 60
     instance_type: mac_mini_m2
 
     environment:
       xcode: latest
+      ios_signing:
+        distribution_type: ad_hoc
+        bundle_identifier: com.tigi44.WidgetKitExample
 
     scripts:
-      - name: Build app for simulator
+      - name: Set up code signing
         script: |
-          xcodebuild \
-            -project "WidgetKitExample.xcodeproj" \
-            -scheme "WidgetKitExample" \
-            -configuration Debug \
-            -sdk iphonesimulator \
-            build
+          xcode-project use-profiles --project "WidgetKitExample.xcodeproj"
+
+      - name: Build IPA
+        script: |
+          xcode-project build-ipa \
+            --project "WidgetKitExample.xcodeproj" \
+            --scheme "WidgetKitExample"
 
     artifacts:
-      - ~/Library/Developer/Xcode/DerivedData/**/Build/Products/**/*.app
-      - ~/Library/Developer/Xcode/DerivedData/**/Build/Products/**/*.appex
+      - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
