@@ -397,14 +397,10 @@
 				0E395E3B25DCE52900019BAC /* Sources */,
 				0E395E3C25DCE52900019BAC /* Frameworks */,
 				0E395E3D25DCE52900019BAC /* Resources */,
-				0EB0165325E7847A00C586E2 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0EB0165125E7847A00C586E2 /* PBXTargetDependency */,
-				0EB0166C25E7848800C586E2 /* PBXTargetDependency */,
-				0EB016BB25E89EC400C586E2 /* PBXTargetDependency */,
 			);
 			name = WidgetKitExample;
 			productName = WidgetKitExample;

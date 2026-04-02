@@ -7,10 +7,8 @@ workflows:
     environment:
       xcode: latest
       ios_signing:
-        provisioning_profiles:
-          - XL AXIATA Distribution
-        certificates:
-          - XL AXIATA Distribution
+        distribution_type: enterprise
+        bundle_identifier: com.xl.MyXL.Giant-stagling
 
     scripts:
       - name: Set up code signing
